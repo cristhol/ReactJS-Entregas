@@ -1,0 +1,24 @@
+/* Widget Carrito */
+
+.cartIcon {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    align-content: center;
+    padding: 0 20px
+  }
+  
+  .cartIcon img {
+    width: 32px;
+  }
+  
+  .cartNotification {
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: #012C3D;
+    color: #f7f8f3;
+    padding: 7px;
+    border-radius: 50%;
+    margin-left: 10px;
+  
+  }
