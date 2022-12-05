@@ -10,13 +10,25 @@
 }
 
 html {
-  font-size: 63.5%;
+  font-size: 62.5%;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Montserrat', sans-serif;
+}
 
+ul {
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+  color: #012C3D;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -24,5 +36,8 @@ body {
   color: #012C3D;
 }
 
-
+.App-Container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 

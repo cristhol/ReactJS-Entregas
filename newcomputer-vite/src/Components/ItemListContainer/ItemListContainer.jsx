@@ -1,4 +1,4 @@
-import './ItemListContainer.css'
+
 //export const saludar = () => console.log('saludo')
 
 //const ItemListContainer = ( { greeting } ) => {
@@ -15,7 +15,7 @@ import './ItemListContainer.css'
 import React, { useEffect, useState} from "react";
 import data from "../../catalog/data.json"
 import ItemList from "../ItemList/ItemList";
-
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
     const [catalogo, setCatalogo] =  useState([]);

@@ -13,7 +13,7 @@ const Item = ( { prod } ) => {
     return (
     <div className="cardContainer">
         <div className="cardImageContainer">
-            <img className="cardImage" src={require(`../../catalog/imagenes/${imagen}.jpg`)} alt={nombre} />
+            <img className="cardImage" src={require(`../../catalog/imagenes/${imagen}.webp`)} alt={nombre} />
         </div>
         <div className="cardInfo">
             <h3 className="cardName" onClick={goToDetails}> {nombre} </h3>

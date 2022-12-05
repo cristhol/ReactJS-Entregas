@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 import './NavBar.css'
 
 
-const NavBar = () => {
+const NavBar = ({ componente }) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
