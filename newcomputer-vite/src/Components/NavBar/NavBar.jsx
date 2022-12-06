@@ -15,7 +15,7 @@ const NavBar = ({ componente }) => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                    <NavLink className='btn btn-outline-primary'  to='/category/notebook'>Notebooks</NavLink>
+                    <NavLink className='btn btn-outline-primary'  to='/category/notebook'>Notebook</NavLink>
                     <NavLink className='btn btn-outline-primary'  to='/category/audio'>Audio</NavLink>
                     </Nav>
                     <Nav>
