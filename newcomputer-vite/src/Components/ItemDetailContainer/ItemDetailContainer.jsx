@@ -1,36 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import data from "../../catalog/data.json"
+import { useParams } from "react-router-dom";
+import { gFetch } from "../../helpers/gFetch";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-    const [catalogo, setCatalogo] = useState([])
-    const [loading, setLoading] = useState(true)
-    const { id } = useParams()
-    const { state } = useLocation()
+    const [ product, setProduct ] = useState({})
+    const { productId } = useParams()
+   
 
     useEffect (() => {
-        const getDB = new Promise((resolve,reject) => {
-            setLoading(true)
-            setTimeout(() => {
-                resolve(
-                setCatalogo(data),
-                setLoading(false)
-            );
-            }, 2000);
-        });
-        getDB.then((result) => {
-            console.log('result', result)
-        })
-    }, []); 
+        gFetch ()
+      .then (respProd => setProduct(respProd.find (prod => prod.id === productId)))
+      .catch (err => console.log (err))
+    })
+
 
     return (
-        <div className="containerDetail">
-            {loading ? <h3 className="loadingMessage">Cargando...</h3>
-            :
-            <ItemDetail item={state} />
-            }
-        </div> 
+        <ItemDetail product= {product}/>
     )
     
 } 

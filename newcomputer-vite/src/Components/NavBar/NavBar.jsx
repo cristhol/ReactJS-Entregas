@@ -2,9 +2,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget';
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import './NavBar.css'
 
 
@@ -16,8 +15,8 @@ const NavBar = ({ componente }) => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                    <Nav.Link className='btn btn-outline-primary'  href="#deets">Notebooks</Nav.Link>
-                    <Nav.Link className='btn btn-outline-primary'  href="#deets">Audio</Nav.Link>
+                    <NavLink className='btn btn-outline-primary'  to='/category/notebooks'>Notebooks</NavLink>
+                    <NavLink className='btn btn-outline-primary'  to='/category/audio'>Audio</NavLink>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">Contacto</Nav.Link>

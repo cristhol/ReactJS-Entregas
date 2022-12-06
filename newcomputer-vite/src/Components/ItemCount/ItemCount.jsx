@@ -1,32 +1,37 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
+const ItemCount = (stock=10, initial=1, onAdd) => {
+    const [ count, setCount ] = useState(0)
 
-const ItemCount = ( {start, max} ) => {
-    const [count, setCount] = useState(start);
-    
-    const onAdd = () => {
-        if (count < max) {
-        setCount(prev => prev + 1)
+    const restar = () => {
+        if (count > initial){
+            setCount(count-1) 
         }
     }
-
-    const onSubtract = () => {
-        if (count > 1) {
-        setCount(prev => prev - 1)
-        }
+    const sumar = () => {
+        if (count > stock){
+        setCount(count+1)
     }
-    
-    return (
-        <div className="ItemCountContainer">
-            <h3>Cantidad</h3>
-            <p>(La compra máxima es de 10 unidades)</p>
-            <div className="itemCount">
-                <button onClick={onSubtract} disabled={count <= 1}>-</button>
-                <label> {count} </label>
-                <button onClick={onAdd} disabled={count >= max}>+</button>
-            </div>
+}
+
+const handleOnAdd = () => {
+    onAdd (count)
+}
+return (
+    <div className="card m-5">
+        <div className="card-header">
+            <label htmlFor="">{count}</label>
         </div>
+        <div className="card-body">
+            <button onClick={sumar} className="btn btn-outline-primary">+</button>
+            <button onClick={restar} className="btn btn-outline-primary">-</button>
+        </div>
+        <div className="card-footer">
+            <button className="btn btn-outline-success" onClick={  handleOnAdd }> Agregar al carrito</button>
+        </div>
+
+    </div>
     )
 }
 
-export default ItemCount;
+export default ItemCount

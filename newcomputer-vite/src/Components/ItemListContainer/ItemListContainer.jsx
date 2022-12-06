@@ -1,50 +1,47 @@
 
-//export const saludar = () => console.log('saludo')
+import {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import { gFetch } from '../../helpers/gFetch'
+import ItemList from '../ItemList/ItemList'
 
-//const ItemListContainer = ( { greeting } ) => {
-  //return (
-    //<section className='section'>ItemListContainer
-        
-       // <p> { greeting }</p>
-    //</section>
- // )
-//}
-
-//export default ItemListContainer
-
-import React, { useEffect, useState} from "react";
-import data from "../../catalog/data.json"
-import ItemList from "../ItemList/ItemList";
 import './ItemListContainer.css'
 
-const ItemListContainer = () => {
-    const [catalogo, setCatalogo] =  useState([]);
+// acciones  api -> resultado (asincrónico)
+
+const ItemListContainer = ( { saludo = 'saludo por defecto' } ) => { 
+    const [ products, setProduct ] = useState([])
     const [loading, setLoading] = useState(true)
+    const{id} = useParams ()
     
-    useEffect (() => {
-        const getDB = new Promise((resolve,reject) => {
-            setLoading(true)
-            setTimeout(() => {
-                resolve(
-                setCatalogo(data),
-                setLoading(false)
-            );
-            }, 2000);
-        });
-        getDB.then((result) => {
-            console.log('result', result)
-        })
-    }, []);
+    useEffect(()=>{
+        if (id) {
+        gFetch()// consulta a un api pero solo simulación 
+        // .then( respuesta => respuesta )
+        .then(data => setProduct(data.filter(prod => prod.categoria ===id)))
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))
+        }    else {
+        gFetch()// consulta a un api pero solo simulación 
+        // .then( respuesta => respuesta )
+        .then(data => setProduct(data))
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))
+    }
+}, [id])
+
+    console.log(products)
 
     return (
-        <div className="ItemListContainer">
-            
-            {loading ? <h3 className="loadingMessage">Cargando...</h3>
-            :
-            <ItemList productos={catalogo} />}
-            
+        <div>
+        
+            {   loading ? 
+                    <h2>loading...</h2> 
+                :
+                    <ItemList products={products}/>
+            }            
+        
         </div>
     )
 }
 
-export default ItemListContainer;
+export default ItemListContainer

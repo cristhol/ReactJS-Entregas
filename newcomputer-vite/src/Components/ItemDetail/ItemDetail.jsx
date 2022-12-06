@@ -1,36 +1,25 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ( {item} ) => {
-    const { id, nombre, precio, caracteristicas, imagen } = item;
+const ItemDetail = ( {product} ) => {
+    const onAdd = (cant) => {
+        console.log(' la cantidad seleccionada es:', cant)
+    }
 
     return (
-        <div className="itemDetailContainer">
-            <div className="item">
-                <div className="itemDetailImageContainer">
-                    <img className="itemDetailImage" src={require(`../../catalog/imagenes/${imagen}.webp`)} alt={nombre} />
+        <div className="container border border-3 border-primary rounded">
+            <div className="row">
+                <div className="col">
+                    <img className="W-50" src={product.foto} alt='foto producto'></img>
+                    <h3>nombre: {product.nombre}</h3>
+                    <h3>categoria: {product.categoria}</h3>
+                    <h4>precio: {product.precio}</h4>
                 </div>
-                <div className="itemPanel">
-                    <div className="itemInfo">
-                        <p className="itemDetailNombre"> {nombre} </p>
-                        <p className="itemDetailPrecio"> $ {precio} </p>
-                    </div>
-                    <div className="itemTransaction">
-                        <ItemCount start={1} max={10} />
-                        <button className="btn-AddToCart">Agregar al carrito</button>
-                    </div>
+                <div clasName="col">
+                    <ItemCount stock={20} initial={1} onAdd={onAdd}/>
                 </div>
             </div>
-            <div className="itemFeatures">
-
-                <strong className="featuresTitle">Características: </strong>
-                <p> {caracteristicas} </p>
-
-                <strong className="featuresTitle">Para pedidos contactarse por:</strong>
-                <strong className="featuresTitle">Whatsapp: +54929147203502</strong>
-                <strong className="featuresTitle">Mail: info@newcomputer.com.ar</strong>
-            </div>
-        </div>
+        </div> 
     )
 
 }

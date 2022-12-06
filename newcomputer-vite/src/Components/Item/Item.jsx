@@ -1,23 +1,30 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 
 
-const Item = ( { prod } ) => {  
-    const {id, nombre, precio, imagen} = prod
-    const navigate = useNavigate()
-    const goToDetails = () => {
-        navigate(`/item/${id}`, {state: prod});
-    }
+
+const Item = ( { product } ) => {  
+   
 
     return (
-    <div className="cardContainer">
-        <div className="cardImageContainer">
-            <img className="cardImage" src={require(`../../catalog/imagenes/${imagen}.webp`)} alt={nombre} />
-        </div>
-        <div className="cardInfo">
-            <h3 className="cardName" onClick={goToDetails}> {nombre} </h3>
-            <p className="cardPrice"> $ {precio} </p>
+    <div style={{ marginLeft: 100 }} className="col-md-3">
+        <div className="card w-100 mt-5">
+            <div className="card-header">
+                {`${product.nombre} - ${product.modelo}`}
+            </div>
+            <div className="card-body">
+                <img src={product.foto} alt="" className="w-50" />
+                {product.precio}
+            </div>
+
+            <div className="card-footer">
+                <Link to={`/detail/${product.id}`}>
+                    <button className="btn btn-outline-primary btn-block">
+                            detalle del producto
+                    </button>
+                </Link >
+            </div>
         </div>
     </div>
     )

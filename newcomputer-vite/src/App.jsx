@@ -1,11 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import NavBar from './Components/NavBar/NavBar'
 
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import './App.css'
+import CartContainer from './Containers/CartContainer/CartContainer';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 function App() {
@@ -14,10 +17,14 @@ function App() {
         <div className='App-Container'>
               <NavBar />
               <Routes>
-              
-                <Route exact path='/productos' element={ <ItemListContainer />} />
-                <Route exact path='/categoria/:id' element={ <ItemListContainer />} />
-                <Route exact path='/item/:id' element={ <ItemDetailContainer />} />
+                
+                <Route path='/' element={ <ItemListContainer />} />
+                <Route path='/ products' element={ <ItemListContainer />} />
+                <Route path='/category/:id' element={ <ItemListContainer />} />
+                <Route path='/detail/:productId' element={ <ItemDetailContainer />} />
+                <Route path='/ Cart' element={ <CartContainer />} />
+                <Route path='*' element={ <Navigate to='/' />} />
+                
               </Routes>          
         </div>
       </BrowserRouter>
