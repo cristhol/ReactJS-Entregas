@@ -3,10 +3,11 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import NavBar from './Components/NavBar/NavBar'
 
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import CartContainer from './Containers/CartContainer/CartContainer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CartContextProvider } from './Context/CartContext';
 
 
 
@@ -14,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <BrowserRouter>
+      <CartContextProvider>
         <div className='App-Container'>
               <NavBar />
               <Routes>
@@ -27,7 +29,8 @@ function App() {
                 
               </Routes>          
         </div>
-      </BrowserRouter>
+        </CartContextProvider>
+    </BrowserRouter>
   );
 }
 
