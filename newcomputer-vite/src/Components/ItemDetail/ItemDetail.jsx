@@ -21,7 +21,7 @@ const ItemDetail = ( {product} ) => {
                     <h3>categoria: {product.categoria}</h3>
                     <h4>precio: {product.precio}</h4>
                 </div>
-                <div clasName="col">
+                <div className="col">
                 <ItemCount stock={20} initial={1} onAdd={onAdd}/>
                   
                 </div>
