@@ -29,7 +29,7 @@ const OrderForm = ( {createOrder, name, setName , email, setEmail, notValid, pho
                     <Link to='/cart'>
                     <button className="btn-light"> ← Volver</button>
                     </Link>
-                    <button type="submit" disabled={notValid} className="btn-action" onClick={() => setShowModal(false)}>Confirmar</button>
+                    <button type="submit" disabled={notValid} className="btn-action">Confirmar</button>
                 </div>
             </form> 
         </div>

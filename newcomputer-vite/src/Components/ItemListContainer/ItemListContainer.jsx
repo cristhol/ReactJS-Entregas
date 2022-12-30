@@ -3,8 +3,9 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where} from 'firebase/firestore'
 import ItemList from '../ItemList/ItemList'
-
+import Loader from '../Loader/Loader'
 import './ItemListContainer.css'
+
 
 // acciones  api -> resultado (asincrónico)
 
@@ -39,12 +40,17 @@ const ItemListContainer = ( { saludo = 'saludo por defecto' } ) => {
     return (
         <div>
         
-            {   loading ? 
-                    <h2>loading...</h2> 
-                :
+                {loading ? 
+                    <Loader />
+            : 
+            <div style ={{display:'flex',
+                            flexDirection:'row',
+                            flexWrap:'wrap'}}> 
+                            
                     <ItemList products={products}/>
+            </div>      
             }            
-        
+            
         </div>
     )
 }

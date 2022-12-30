@@ -11,16 +11,22 @@ import './NavBar.css'
 
 const NavBar = ({ componente }) => {
     return (
+        
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="primary">
             <Container>
+                
                 <Link className='btn btn-outline-dark' to='/'  href="#home" > <img className='logo'src={Logo} alt="logo" ></img></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
+                    
                     <Nav className="me-auto">
                     <NavLink className='btn btn-outline-secondary'  to='/category/notebook'>Notebooks</NavLink>
                     <NavLink className='btn btn-outline-secondary'  to='/category/audio'>Audio</NavLink>
+
                     </Nav>
+                    
                 </Navbar.Collapse>
+                
             </Container>
             <div className="cartWidget">
                         <Link to="/cart">
@@ -28,7 +34,9 @@ const NavBar = ({ componente }) => {
                         </Link>
             </div>
         </Navbar>
+        
     );
 };
 
 export default NavBar;
+

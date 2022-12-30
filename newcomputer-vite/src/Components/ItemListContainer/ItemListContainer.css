@@ -1,3 +1,10 @@
+.ItemListContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 120px;
+    padding: 20px;
+  }
 .section  {
     color: blue;
     text-align: center;
