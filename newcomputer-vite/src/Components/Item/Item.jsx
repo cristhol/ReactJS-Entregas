@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const Item = ( { product } ) => {  
-   
+
 
     return (
     <div style={{ marginLeft: 100 }} className="col-md-3">
@@ -31,3 +31,4 @@ const Item = ( { product } ) => {
 }
 
 export default Item
+

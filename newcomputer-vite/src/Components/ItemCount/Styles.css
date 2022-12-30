@@ -1,0 +1,44 @@
+/* ITEM COUNT */
+
+.ItemCountContainer {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+   .itemCount {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #012C3D;
+    padding: 8px;
+  }
+  
+  .ItemCountContainer h3 {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  
+  .ItemCountContainer p {
+    font-size: 1rem;
+  }
+  
+  .itemCount button {
+    width: 25px;
+    height: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  .itemCount label {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+  } 

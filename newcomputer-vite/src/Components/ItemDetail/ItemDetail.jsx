@@ -1,32 +1,53 @@
 
-import { useCartContext } from "../../Context/CartContext";
+
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext.jsx";
+
 import ItemCount from "../ItemCount/ItemCount";
+import './Styles.css';
 
 
 const ItemDetail = ( {product} ) => {
+    const { foto, nombre, precio, caracteristicas } = product;
+    const { addToCart } = useContext(CartContext);
+    const [amount, setAmount] = useState(1);
 
-    const {  agregarCarrito } = useCartContext()
-
-    const onAdd = (cant) => {
-        console.log('la cantidad seleccionada es:', cant)
-        agregarCarrito( { ... product, cant} )
-}
-
+    const handleAmount = num => {
+        setAmount(num);
+    }
+    
+    
     return (
-        <div className='container border border-3 border-primary rounded'>
-            <div className='row'>
-                <div className="col">
-                    <img className="W-50" src={product.foto} alt='foto producto'></img>
-                    <h3>nombre: {product.nombre}</h3>
-                    <h3>categoria: {product.categoria}</h3>
-                    <h4>precio: {product.precio}</h4>
+        <div className="itemDetailContainer">
+            <div className="item">
+                <div className="itemDetailImageContainer">
+                    <img className="itemDetailImage" src={foto} alt={nombre} />
                 </div>
-                <div className="col">
-                <ItemCount stock={20} initial={1} onAdd={onAdd}/>
-                  
+                <div className="itemPanel">
+                    <div className="itemInfo">
+                        <p className="itemDetailNombre"> {nombre} </p>
+                        <p className="itemDetailPrecio"> {Intl.NumberFormat("es-AR", {currency: "ARS", style:"currency"}).format(precio)} </p>
+                    </div>
+                    <div className="itemTransaction">
+                        <ItemCount start={1} max={5} handleAmount={handleAmount} />
+                        <button className="btn-AddToCart" onClick={() => {addToCart(product, amount)} }>Agregar al carrito</button>
+                        <Link to='/cart' >
+                            <button className="btn-AddToCart"> Ir al carrito </button>
+                        </Link>
+
+                        <Link to = '/productos'>
+                            <button className="btn-AddToCart">Seguir comprando</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div> 
+            <div className="itemFeatures">
+
+                <strong className="featuresTitle">Características: </strong>
+                <p> {caracteristicas} </p>
+            </div>
+        </div>
     )
 
 }
