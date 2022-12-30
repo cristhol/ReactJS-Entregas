@@ -1,3 +1,12 @@
+import React, { useContext, useState } from "react";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { CartContext } from "../../Context/CartContext";
+import Modal from "../Modal/Modal";
+import OrderForm from "./OrderForm";
+import './Styles.css';
+
+
+
 const Checkout = () => {
     const [orderId, setOrderId] = useState(null);
     const [name, setName] = useState('');

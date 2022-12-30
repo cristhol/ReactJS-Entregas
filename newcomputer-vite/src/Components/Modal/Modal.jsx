@@ -12,7 +12,7 @@ const Modal = ({ showModal, setShowModal, orderId }) => {
     return (
         <>
             {
-                showModal, orderId &&
+            {showModal, orderId} &&
                 <div className="modal-container">
                     <div className="modal">
                         <div className="modal-notification">
