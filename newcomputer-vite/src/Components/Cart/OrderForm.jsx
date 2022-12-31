@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const OrderForm = ( {createOrder, name, setName , email, setEmail, notValid, phone, setPhone, setShowModal } ) => {
@@ -27,9 +28,9 @@ const OrderForm = ( {createOrder, name, setName , email, setEmail, notValid, pho
                 </div>
                 <div className="form-actions">
                     <Link to='/cart'>
-                    <button className="btn-light"> ← Volver</button>
+                    <button className='btn btn-outline-primary' > ← Volver</button>
                     </Link>
-                    <button type="submit" disabled={notValid} className="btn-action">Confirmar</button>
+                    <button type="submit" disabled={notValid} className='btn btn-outline-primary' >Confirmar</button>
                 </div>
             </form> 
         </div>

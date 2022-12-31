@@ -5,6 +5,7 @@ import { CartContext, CartContextProvider } from "../../Context/CartContext";
 import CartItem from "../CartItem/CartItem";
 import EmptyCart from "./EmptyCart";
 import './Styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Cart = () => {
@@ -36,11 +37,11 @@ const Cart = () => {
                     </div>
                     <div className="cart-actions">
                         <Link to='/productos' >
-                            <button className="btn-link">Ver más productos</button>
+                            <button className='btn btn-outline-primary'>Ver más productos</button>
                         </Link>
-                        <button className="btn-light" onClick={clearCart}>Vaciar carrito</button>
+                        <button className='btn btn-outline-primary' onClick={clearCart}>Vaciar carrito</button>
                         <Link to='/checkout' >
-                            <button className="btn-action">Iniciar compra</button>
+                            <button className='btn btn-outline-primary'>Iniciar compra</button>
                         </Link>
                     </div>
                 </div>
